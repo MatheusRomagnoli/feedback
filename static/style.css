@@ -56,3 +56,21 @@
 
     transition: background-color 0.3s;
 }
+
+.container_comentario{
+    width: 800px;
+    height: 400px;
+    background-color: cadetblue;
+    margin-top: 20px;
+    border-radius: 20px;
+
+    display: flex;
+    flex-direction: column;
+
+    text-align: left;
+    justify-content: center;
+    padding: 20px;
+
+
+    
+}

@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container-geral">
-        <form action="/post/mensagem" method="POST" class="formatacao-form">
+        <form action="/post/enviarDados" method="POST" class="formatacao-form">
             <label>Usuário</label>
             <input type="text" placeholder="Escreva seu nome de usuário" class="formatacao-inputs" name="usuario" />
 
@@ -24,7 +24,24 @@
 
             <button type="submit" class="formatacao-botao">Enviar</button>
         </form>
+
+        <div class="container_comentario">
+            {% for mensagem in mensagens %}
+            <label for="">nome:</label>
+            <span>{{mensagem.usuario}}</span>
+
+            <label for="">data:</label>
+            <span>{{mensagem.data}}</span>
+
+            <label for="">comentário:</label>
+            <span>{{mensagem.mensagem}}</span>
+            {% endfor %}
+        </div>
+
     </div>
+    
+
+
 
 </body>
 </html>

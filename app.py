@@ -8,7 +8,9 @@ app = Flask(__name__)
 
 @app.route("/")
 def pagina_principal():
-    return render_template("index.html")
+    mensagens = Mensagem.recuperar_mensagens()
+
+    return render_template("index.html", mensagens = mensagens)
 
 @app.route("/post/enviarDados", methods = ["POST"])
 def post_enviarDados():
@@ -17,6 +19,7 @@ def post_enviarDados():
     mensagem = request.form.get("mensagem")
 
     Mensagem.cadastrar_mensagem(usuario, mensagem)
+
     
 
     # vai redirecionar pro index qnd clicar no botao

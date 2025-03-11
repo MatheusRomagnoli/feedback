@@ -29,3 +29,29 @@ class Mensagem:
         # fecho a conexao com o banco
         cursor.close()
         conexao.close()
+
+
+    def recuperar_mensagens():
+        # Criar conexão
+        conexao = Conexao.criar_conexao()
+        # dictionary = True: quando ele me retornar as mensagens, ele vai me devolver essas informações, vai colocar o mesmo nome que está no SQL
+
+        # o cursor é responsável por manipular o banco de dados
+        cursor = conexao.cursor(dictionary=True) 
+
+        # criando o sql que será executado
+        sql = """SELECT nome, comentario, data_comentario FROM tbComentarios;"""
+
+        # executar o comando sql
+        cursor.execute(sql)
+
+        # recuperando os dados e guardando em uma variável
+        resultado = cursor.fetchall()
+
+        # fecho a conexão com o banco
+        cursor.close()
+        conexao.close()
+
+        return resultado
+    
+

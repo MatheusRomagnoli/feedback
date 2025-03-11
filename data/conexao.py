@@ -2,7 +2,7 @@ import mysql.connector
 class Conexao: 
     def criar_conexao():
         conexao = mysql.connector.connect(
-            hostname = "localhost",
+            host = "localhost",
             port = 3306,
             user = "root",
             password = "root",
