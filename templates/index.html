@@ -12,6 +12,14 @@
     </style>
 
     <title>Feedback</title>
+
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
 </head>
 <body>
     <div class="container-geral">
@@ -26,16 +34,38 @@
         </form>
 
         <div class="container_comentario">
-            {% for mensagem in mensagens %}
-            <label for="">nome:</label>
-            <span>{{mensagem.usuario}}</span>
-
-            <label for="">data:</label>
-            <span>{{mensagem.data}}</span>
-
-            <label for="">comentário:</label>
-            <span>{{mensagem.mensagem}}</span>
-            {% endfor %}
+            <table>
+                <thead>
+                    <td>
+                        MENSAGEM
+                    </td>
+                    <td>
+                        DATA
+                    </td>
+                    <td>
+                        AÇÕES
+                    </td>
+                </thead>
+                <tbody>
+                    {% for mensagem in mensagens %}
+                    <tr>
+                    <td>
+                        {{mensagem.usuario}}
+                    </td>
+                    <td>
+                        {{mensagem.data}}
+                    </td>
+                    <td>
+                        {{mensagem.mensagem}}
+                    </td>
+                    <td>
+                        <a href="/delete/mensagem/{{mensagem.cod_comentario}}"><button class="btn waves-effect waves-light" type="submit" name="action">Excluir</button></a> 
+                    </td>
+                    </tr>
+                    
+                    {% endfor %}
+                </tbody>
+            </table>
         </div>
 
     </div>

@@ -14,8 +14,8 @@ class Mensagem:
         cursor = conexao.cursor()
 
         # criando o SQL que será executado
-        sql = """INSERT INTO tbComentarios
-                (nome, data_comentario, comentario)
+        sql = """INSERT INTO tb_Comentarios
+                (nome, data_hora, comentario)
                 VALUES
                 (%s, %s, %s)"""
         valores=(usuario, data_hora, mensagem)
@@ -40,7 +40,7 @@ class Mensagem:
         cursor = conexao.cursor(dictionary=True) 
 
         # criando o sql que será executado
-        sql = """SELECT nome, comentario, data_comentario FROM tbComentarios;"""
+        sql = """SELECT cod_comentario, nome as usuario, comentario as mensagem, data_hora as data FROM tb_Comentarios;"""
 
         # executar o comando sql
         cursor.execute(sql)
@@ -54,4 +54,25 @@ class Mensagem:
 
         return resultado
     
+    def deletar_mensagem(codigo):
+        # criando a conexao com banco de dados
+        conexao = Conexao.criar_conexao()
+
+        # o cursor é a ponte que vai do python ate o banco de dados
+        cursor = conexao.cursor()
+
+        # criando o SQL que será executado
+        sql = """DELETE FROM tb_Comentarios
+                WHERE cod_comentario = %s"""
+        valores=(codigo,)
+
+        # executando o comando 
+        cursor.execute(sql,valores)
+
+        # confirmo a alteração
+        conexao.commit()
+
+        # fecho a conexao com o banco
+        cursor.close()
+        conexao.close()
 
