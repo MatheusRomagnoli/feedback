@@ -28,7 +28,7 @@
             <input type="text" placeholder="Escreva seu nome de usuário" class="formatacao-inputs" name="usuario" />
 
             <label>Comentário</label>
-            <input type="text" placeholder="Escreva seu comentário" class="formatacao-inputs" name="comentario" />
+            <input type="text" placeholder="Escreva seu comentário" class="formatacao-inputs" name="mensagem" />
 
             <button type="submit" class="formatacao-botao">Enviar</button>
         </form>
@@ -41,6 +41,9 @@
                     </td>
                     <td>
                         DATA
+                    </td>
+                    <td>
+                        CURTIDAS
                     </td>
                     <td>
                         AÇÕES
@@ -57,6 +60,9 @@
                     </td>
                     <td>
                         {{mensagem.mensagem}}
+                    </td>
+                    <td>
+                        <a href=""><button class="btn waves-effect waves-light" type="submit" name="action">Curtir</button></a> 
                     </td>
                     <td>
                         <a href="/delete/mensagem/{{mensagem.cod_comentario}}"><button class="btn waves-effect waves-light" type="submit" name="action">Excluir</button></a> 
