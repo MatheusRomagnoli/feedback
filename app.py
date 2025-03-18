@@ -25,5 +25,9 @@ def post_enviarDados():
     # vai redirecionar pro index qnd clicar no botao
     return redirect("/")
 
+@app.route("/delete/mensagem/<codigo>")
+def delete_mensagem(codigo):
+    Mensagem.deletar_mensagem(codigo)
+    return redirect("/")
    
 app.run(debug=True)
