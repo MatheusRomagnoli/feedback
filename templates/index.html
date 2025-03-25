@@ -59,10 +59,16 @@
                         {{mensagem.data}}
                     </td>
                     <td>
+                        {{mensagem.curtidas}}
+                    </td>
+                    <td>
                         {{mensagem.mensagem}}
                     </td>
                     <td>
-                        <a href=""><button class="btn waves-effect waves-light" type="submit" name="action">Curtir</button></a> 
+                        <a href="put/mensagem/adicionar/curtida/{{mensagem.cod_comentario}}"><button class="btn waves-effect waves-light" type="submit" name="action">Curtir</button></a> 
+                    </td>
+                    <td>
+                        <a href="put/mensagem/remover/curtida/{{mensagem.cod_comentario}}"><button class="btn waves-effect waves-light" type="submit" name="action">Descurtir</button></a> 
                     </td>
                     <td>
                         <a href="/delete/mensagem/{{mensagem.cod_comentario}}"><button class="btn waves-effect waves-light" type="submit" name="action">Excluir</button></a> 
