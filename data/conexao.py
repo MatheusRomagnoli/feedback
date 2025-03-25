@@ -20,7 +20,6 @@ class Conexao:
             user = "3ds",
             password = "banana",
             database = "db_Feedback"
-            # FALTA ADICIONAR AS CURTIDAS
     )
         return conexao
     
