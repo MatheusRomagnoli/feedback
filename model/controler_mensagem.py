@@ -98,3 +98,26 @@ class Mensagem:
         # fecho a conexao com o banco
         cursor.close()
         conexao.close()
+
+    def descurtir_mensagem(codigo):
+        # criando a conexao com banco de dados
+        conexao = Conexao.criar_conexao()
+
+        # o cursor é a ponte que vai do python ate o banco de dados
+        cursor = conexao.cursor()
+
+        # criando o SQL que será executado
+        sql = """UPDATE tbComentarios
+                ET curtidas = curtidas - 1
+                WHERE cod_comentario = %s"""
+        valores=(codigo)
+
+        # executando o comando 
+        cursor.execute(sql,valores)
+
+        # confirmo a alteração
+        conexao.commit()
+
+        # fecho a conexao com o banco
+        cursor.close()
+        conexao.close()
