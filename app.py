@@ -43,11 +43,19 @@ def remover_curtida(codigo):
     Mensagem.descurtir_mensagem(codigo)
     return redirect("/")
 
-# # ROTA CADASTRO
-# @app.route("/")
-# def cadastrar_usuario():
-#     Mensagem.descurtir_mensagem(codigo) 
-#     return redirect("/")
+# ROTA CADASTRO FUNÇÃO
+@app.route("/post/cadastrarUsuario", methods=["POST"])
+def cadastrar_usuario():
+    nome = request.form.get("nome")
+    login = request.form.get("login")
+    senha = request.form.get("senha")
+
+    Mensagem.cadastrar_usuario(nome, login, senha)
+    return redirect("pagina_usuario")
+
+@app.route("/cadastro")
+def pagina_usuario():
+    return render_template ("cadastro.html")
 
 app.run(debug=True)
 

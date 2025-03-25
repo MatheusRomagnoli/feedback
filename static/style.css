@@ -61,3 +61,24 @@
     width: 100%;
     height: 500px;
 }
+
+.div-links-login{
+    display: flex;
+
+    width: 500px;
+    height: 150px;
+    align-items: center;
+    justify-content: center;
+}
+
+.link_cadastro_login{
+    margin: 0px 40px;
+    width: 100px;
+    height: 100px;
+    color: black;
+}
+
+.link_cadastro_login:hover{
+    color: cadetblue;
+    transition: color 0.3s;
+}

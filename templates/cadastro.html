@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}">
+
     <!-- importando fontes -->
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
@@ -17,11 +19,14 @@
         <h1>Cadastrar Usuário</h1>
 
         <form action="/post/cadastrarUsuario" method="POST" class="formatacao-form">
-            <label>Usuário</label>
-            <input type="text" placeholder="Escreva seu nome de usuário" class="formatacao-inputs" name="usuario" />
+            <label>Nome</label>
+            <input type="text" placeholder="Escreva seu nome" class="formatacao-inputs" name="login" />
 
-            <label>Comentário</label>
-            <input type="text" placeholder="Escreva seu comentário" class="formatacao-inputs" name="mensagem" />
+            <label>Usuário</label>
+            <input type="text" placeholder="Escreva seu usuário" class="formatacao-inputs" name="nome" />
+
+            <label>Senha</label>
+            <input type="text" placeholder="Escreva sua senha" class="formatacao-inputs" name="senha" />
 
             <button type="submit" class="formatacao-botao">Enviar</button>
         </form>
