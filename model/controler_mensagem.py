@@ -40,7 +40,7 @@ class Mensagem:
         cursor = conexao.cursor(dictionary=True) 
 
         # criando o sql que será executado
-        sql = """SELECT cod_comentario, nome as usuario, comentario as mensagem, data_hora as data, curtidas FROM tb_Comentarios;"""
+        sql = """SELECT cod_comentario, nome as usuario, comentario as mensagem, data_hora as data, curtidas FROM tb_comentarios;"""
 
         # executar o comando sql
         cursor.execute(sql)
@@ -62,7 +62,7 @@ class Mensagem:
         cursor = conexao.cursor()
 
         # criando o SQL que será executado
-        sql = """DELETE FROM tb_Comentarios
+        sql = """DELETE FROM tb_comentarios
                 WHERE cod_comentario = %s"""
         valores=(codigo)
 
@@ -84,10 +84,10 @@ class Mensagem:
         cursor = conexao.cursor()
 
         # criando o SQL que será executado
-        sql = """UPDATE tbComentarios
-                ET curtidas = curtidas + 1
+        sql = """UPDATE tb_comentarios
+                SET curtidas = curtidas + 1
                 WHERE cod_comentario = %s"""
-        valores=(codigo)
+        valores=(codigo,)
 
         # executando o comando 
         cursor.execute(sql,valores)
@@ -107,10 +107,10 @@ class Mensagem:
         cursor = conexao.cursor()
 
         # criando o SQL que será executado
-        sql = """UPDATE tbComentarios
-                ET curtidas = curtidas - 1
+        sql = """UPDATE tb_comentarios
+                SET curtidas = curtidas - 1
                 WHERE cod_comentario = %s"""
-        valores=(codigo)
+        valores=(codigo,)
 
         # executando o comando 
         cursor.execute(sql,valores)
@@ -121,3 +121,4 @@ class Mensagem:
         # fecho a conexao com o banco
         cursor.close()
         conexao.close()
+

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- importando fontes -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap');
+    </style>
+
+    <title>Cadastro</title>
+</head>
+<body>
+    <div class="container-geral">
+        <h1>Cadastrar Usuário</h1>
+
+        <form action="/post/cadastrarUsuario" method="POST" class="formatacao-form">
+            <label>Usuário</label>
+            <input type="text" placeholder="Escreva seu nome de usuário" class="formatacao-inputs" name="usuario" />
+
+            <label>Comentário</label>
+            <input type="text" placeholder="Escreva seu comentário" class="formatacao-inputs" name="mensagem" />
+
+            <button type="submit" class="formatacao-botao">Enviar</button>
+        </form>
+    </div>
+    
+
+</body>
+</html>
