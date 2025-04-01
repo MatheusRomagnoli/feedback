@@ -3,6 +3,7 @@ from datetime import datetime
 import mysql.connector
 from data.conexao import Conexao
 from model.controler_mensagem import Mensagem
+from model.controler_usuario import Usuario
 
 app = Flask(__name__)
 
@@ -50,12 +51,17 @@ def cadastrar_usuario():
     login = request.form.get("login")
     senha = request.form.get("senha")
 
-    Mensagem.cadastrar_usuario(nome, login, senha)
+    Usuario.cadastrar(nome, login, senha)
     return redirect("pagina_usuario")
 
 @app.route("/cadastro")
 def pagina_usuario():
     return render_template ("cadastro.html")
+
+# LOGIN USUARIO
+@app.route("/login")
+def pagina_login():
+    return render_template ("login.html")
 
 app.run(debug=True)
 
