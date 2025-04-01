@@ -47,7 +47,10 @@ class Usuario:
 
         # executando o comando 
         cursor.execute(sql,valores)
-
+        
+        resultado = cursor.fetchone()
+        
+        
         # confirmo a alteração
         conexao.commit()
 
