@@ -52,7 +52,7 @@ def cadastrar_usuario():
     senha = request.form.get("senha")
 
     Usuario.cadastrar(nome, login, senha)
-    return redirect("pagina_usuario")
+    return redirect("/")
 
 @app.route("/cadastro")
 def pagina_usuario():
