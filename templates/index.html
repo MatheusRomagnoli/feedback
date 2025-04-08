@@ -23,9 +23,10 @@
 </head>
 <body>
     <div class="container-geral">
-        <div class="div-links-login">
-            <a class="link_cadastro_login" href="/cadastro">NÃO possui um usuário? clique aqui!</a>
-            <a class="link_cadastro_login" href="/login">JÁ possui um usuário? clique aqui!</a>
+        
+
+        <div class="titulo">
+            <h3>seja bem vindo {{session["nome_usuario"]}}</h3>
         </div>
         
         <form action="/post/enviarDados" method="POST" class="formatacao-form">
@@ -37,6 +38,13 @@
 
             <button type="submit" class="formatacao-botao">Enviar</button>
         </form>
+
+        <div class="div-links-login">
+            <a class="link_cadastro_login" href="/cadastro">NÃO possui um usuário? clique aqui!</a>
+            <a class="link_cadastro_login" href="/login">JÁ possui um usuário? clique aqui!</a>
+        </div>
+
+        <a href="/logoff"><button class="btn waves-effect waves-light" type="submit" name="action">LOGOFF</button></a> 
 
         <div class="container_comentario">
             <table>

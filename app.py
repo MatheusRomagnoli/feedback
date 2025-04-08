@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session
 from datetime import datetime
 import mysql.connector
 from data.conexao import Conexao
@@ -7,11 +7,16 @@ from model.controler_usuario import Usuario
 
 app = Flask(__name__)
 
+app.secret_key = "Maithe"
+
 @app.route("/")
 def pagina_principal():
-    mensagens = Mensagem.recuperar_mensagens()
+    if "usuario" in session:
+        mensagens = Mensagem.recuperar_mensagens()
 
-    return render_template("index.html", mensagens = mensagens)
+        return render_template("index.html", mensagens = mensagens)
+    else:
+        return redirect("/login")
 
 @app.route("/post/enviarDados", methods = ["POST"])
 def post_enviarDados():
@@ -52,15 +57,32 @@ def cadastrar_usuario():
     senha = request.form.get("senha")
 
     Usuario.cadastrar(nome, login, senha)
-    return redirect("/")
+    return redirect("/login")
 
 @app.route("/cadastro")
 def pagina_usuario():
     return render_template ("cadastro.html")
 
 # LOGIN USUARIO
+@app.route("/post/login", methods = ["POST"])
+def post_login():
+    login = request.form.get("login")
+    senha = request.form.get("senha")
+
+    esta_logado = Usuario.login(login, senha)
+    if esta_logado:
+        return redirect("/")
+    else:
+        return redirect("/login")
+    
 @app.route("/login")
 def pagina_login():
+    return render_template ("login.html")
+
+# LOGOFF
+@app.route("/logoff")
+def logoff():
+    Usuario.logoff()
     return render_template ("login.html")
 
 app.run(debug=True)
